@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 글쓰기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #title input[required] {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-lg">
+
+
+
+        <h1 class="text-2xl font-bold mb-6 text-center text-blue-600">📝 게시판 글쓰기</h1>
+
+        <form id="postForm" class="space-y-6">
+
+
+            <!-- 제목 -->
+            <div id="title" name="title" class="title" style="border:1px solid #ee0000;padding:10px">
+                안녕하세요.
+                <label for="title" class="block text-sm font-medium text-gray-700">제목</label>
+                <input type="text" placeholder="제목 입력"
+                    class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    required pattern="^.{2,50}$" title="제목은 최소 2자, 최대 50자까지 가능합니다.">
+            </div>
+
+            <!-- <div>
+                <label for="title" class="block text-sm font-medium text-gray-700">제목</label>
+                <input type="text" id="title" name="title" placeholder="제목 입력"
+                    class="title mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    required pattern="^.{2,50}$" title="제목은 최소 2자, 최대 50자까지 가능합니다.">
+            </div> -->
+
+
+            <!-- 내용 -->
+            <div>
+                <label for="content" class="block text-sm font-medium text-gray-700">내용</label>
+                <textarea id="content" name="content" rows="5" placeholder="내용 입력"
+                    class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    required pattern="^.{5,500}$" title="내용은 최소 5자, 최대 500자까지 입력 가능합니다."></textarea>
+            </div>
+
+            <!-- 공개 여부 (라디오 버튼) -->
+            <div>
+                <span class="block text-sm font-medium text-gray-700 mb-2">공개 여부</span>
+                <div class="flex space-x-4">
+                    <!-- 공개 -->
+                    <label class="flex items-center cursor-pointer">
+                        <input type="radio" name="visibility" value="public" class="hidden peer" required>
+                        <div
+                            class="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center peer-checked:border-blue-600">
+                            <div class="w-2.5 h-2.5 rounded-full bg-transparent peer-checked:bg-blue-600"></div>
+                        </div>
+                        <span class="ml-2 text-gray-700 peer-checked:text-blue-600 font-medium">공개</span>
+                    </label>
+
+                    <!-- 비공개 -->
+                    <label class="flex items-center cursor-pointer">
+                        <input type="radio" name="visibility" value="private" class="hidden peer">
+                        <div
+                            class="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center peer-checked:border-blue-600">
+                            <div class="w-2.5 h-2.5 rounded-full bg-transparent peer-checked:bg-blue-600"></div>
+                        </div>
+                        <span class="ml-2 text-gray-700 peer-checked:text-blue-600 font-medium">비공개</span>
+                    </label>
+                </div>
+            </div>
+
+            
+
+          
+
+            <!-- 버튼 -->
+            <div class="flex justify-end space-x-3">
+                <button type="reset" class="px-5 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">
+                    취소
+                </button>
+                <button type="button" onclick="author_print()"
+                    class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    등록
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/write.js"></script>
+
+
+</body>
+
+</html>
