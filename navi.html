@@ -2,34 +2,30 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 </head>
 
 <body>
+  <div class="container">
+    <img src="images/login-bg.png" id="cat">
+  </div>
 
+  <script>
+    let cat = document.querySelector("#cat");
+    let status = true; // true = 원본 이미지, false = 교체 이미지
+
+    cat.onclick = changepic;
+
+    function changepic() {
+      if (status) {
+        cat.src = "images/nazzam.jpg";
+        status = false;
+      } else {
+        cat.src = "images/login-bg.png";
+        status = true;
+      }
+    }
+  </script>
 </body>
-
-<script>
-    function isMobile() {
-        const ua = navigator.userAgent.toLowerCase();
-        return /iphone|ipad|ipod|android|windows phone|blackberry|mobile/i.test(ua);
-    }
-
-    if (isMobile()) {
-        console.log("📱 모바일 브라우저");
-        //location.href="http://m.naver.com";
-        document.body.style.backgroundColor = "#f0f9ff";
-    } else {
-        // console.log("💻 PC 브라우저");
-        //location.href="http://www.naver.com";
-
-        // console.log(" location.protocol - " , location.protocol);
-        // console.log(" location.port - " , location.port);
-
-        console.log(" screen.width - " , screen.width);
-
-        document.body.style.backgroundColor = "#000";
-    }
-</script>
 
 </html>
