@@ -122,12 +122,12 @@ saveBtn.addEventListener("click", () => {
         const tasks = loadTasks();
 
         tasks.push(newTask);
-        
+
         saveTasks();
         renderTasks(tasks);
         taskModal.style.display = "none";
     } else {
-        alert("할 일을 입력하세요!");
+        showToast("할 일을 입력하세요!","error");
     }
 });
 
@@ -137,3 +137,17 @@ window.addEventListener("keydown", (e) => {
         taskModal.style.display = "none";
     }
 });
+
+
+// Toast 알림 함수
+function showToast(message, type = "info") {
+    const toast = document.createElement("div");
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    toastContainer.appendChild(toast);
+
+    // 3.5초 후 자동 제거
+    setTimeout(() => {
+        toast.remove();
+    }, 3500);
+}
