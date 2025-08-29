@@ -112,6 +112,7 @@ addBtn.addEventListener("click", () => {
 // 모달 닫기
 closeBtn.addEventListener("click", () => {
     taskModal.style.display = "none";
+
 });
 
 // 저장 버튼 클릭 시 새로운 task 추가
@@ -119,7 +120,9 @@ saveBtn.addEventListener("click", () => {
     const newTask = taskInput.value.trim();
     if (newTask) {
         const tasks = loadTasks();
+
         tasks.push(newTask);
+        
         saveTasks();
         renderTasks(tasks);
         taskModal.style.display = "none";
